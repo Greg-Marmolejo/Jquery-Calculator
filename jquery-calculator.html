@@ -1,253 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>jQuery Calculator</title>
 
-    <!-- Added link to the jQuery Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <title>jQuery Calculator</title>
 
-    <!-- Added a link to Bootstrap-->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    />
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <!-- Added a link to our external stylesheet-->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Jumbotron for Title -->
-    <div class="jumbotron">
-      <h1 class="text-center">jQuery Calculator</h1>
-      <h3 class="text-center">
-        Perform basic mathematic operations using the power of jQuery!
-      </h3>
-    </div>
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
 
-    <div class="container">
-      <div class="row">
-        <!-- Calculator Card -->
-        <div class="col-lg-4">
-          <div class="card">
-            <h3 class="card-header">Calculator</h3>
+  <!-- Added a link to our external stylesheet-->
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-            <div class="card-body">
-              <button id="button-1" class="btn btn-primary number" value="1">
-                <span>1</span>
-              </button>
-              <button id="button-2" class="btn btn-primary number" value="2">
-                <span>2</span>
-              </button>
-              <button id="button-3" class="btn btn-primary number" value="3">
-                <span>3</span>
-              </button>
-              <button
-                id="button-plus"
-                class="btn btn-danger operator"
-                value="plus"
-              >
-                <span>+</span>
-              </button>
-              <br /><br />
-              <button id="button-4" class="btn btn-primary number" value="4">
-                <span>4</span>
-              </button>
-              <button id="button-5" class="btn btn-primary number" value="5">
-                <span>5</span>
-              </button>
-              <button id="button-6" class="btn btn-primary number" value="6">
-                <span>6</span>
-              </button>
-              <button
-                id="button-minus"
-                class="btn btn-danger operator"
-                value="minus"
-              >
-                <span>&minus;</span>
-              </button>
-              <br /><br />
-              <button id="button-7" class="btn btn-primary number" value="7">
-                <span>7</span>
-              </button>
-              <button id="button-8" class="btn btn-primary number" value="8">
-                <span>8</span>
-              </button>
-              <button id="button-9" class="btn btn-primary number" value="9">
-                <span>9</span>
-              </button>
-              <button
-                id="button-multiply"
-                class="btn btn-danger operator"
-                value="times"
-              >
-                <span>&times;</span>
-              </button>
-              <br /><br />
-              <button id="button-0" class="btn btn-primary number" value="0">
-                <span>0</span>
-              </button>
-              <button
-                id="button-divide"
-                class="btn btn-danger operator"
-                value="divide"
-              >
-                <span>&divide;</span>
-              </button>
-              <button
-                id="button-power"
-                class="btn btn-danger operator"
-                value="power"
-              >
-                <span>^</span>
-              </button>
-              <button
-                id="button-equal"
-                class="btn btn-success equal"
-                value="equals"
-              >
-                <span>=</span>
-              </button>
-              <br /><br />
-              <button
-                id="button-clear"
-                class="btn btn-dark clear"
-                value="clear"
-              >
-                <span>clear</span>
-              </button>
-            </div>
+<body>
+  <!-- Jumbotron for Title -->
+  <div class="jumbotron">
+    <h1 class="text-center">jQuery Calculator</h1>
+    <h3 class="text-center">
+      Perform basic mathematic operations using the power of jQuery!
+    </h3>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <!-- Calculator Card -->
+      <div class="col-lg-4">
+        <div class="card">
+          <h3 class="card-header">Calculator</h3>
+
+          <div class="card-body">
+            <button id="button-1" class="btn btn-primary number" value="1">
+              <span>1</span>
+            </button>
+            <button id="button-2" class="btn btn-primary number" value="2">
+              <span>2</span>
+            </button>
+            <button id="button-3" class="btn btn-primary number" value="3">
+              <span>3</span>
+            </button>
+            <button id="button-plus" class="btn btn-danger operator" value="plus">
+              <span>+</span>
+            </button>
+            <br /><br />
+            <button id="button-4" class="btn btn-primary number" value="4">
+              <span>4</span>
+            </button>
+            <button id="button-5" class="btn btn-primary number" value="5">
+              <span>5</span>
+            </button>
+            <button id="button-6" class="btn btn-primary number" value="6">
+              <span>6</span>
+            </button>
+            <button id="button-minus" class="btn btn-danger operator" value="minus">
+              <span>&minus;</span>
+            </button>
+            <br /><br />
+            <button id="button-7" class="btn btn-primary number" value="7">
+              <span>7</span>
+            </button>
+            <button id="button-8" class="btn btn-primary number" value="8">
+              <span>8</span>
+            </button>
+            <button id="button-9" class="btn btn-primary number" value="9">
+              <span>9</span>
+            </button>
+            <button id="button-multiply" class="btn btn-danger operator" value="times">
+              <span>&times;</span>
+            </button>
+            <br /><br />
+            <button id="button-0" class="btn btn-primary number" value="0">
+              <span>0</span>
+            </button>
+            <button id="button-divide" class="btn btn-danger operator" value="divide">
+              <span>&divide;</span>
+            </button>
+            <button id="button-power" class="btn btn-danger operator" value="power">
+              <span>^</span>
+            </button>
+            <button id="button-equal" class="btn btn-success equal" value="equals">
+              <span>=</span>
+            </button>
+            <br /><br />
+            <button id="button-clear" class="btn btn-dark clear" value="clear">
+              <span>clear</span>
+            </button>
           </div>
         </div>
+      </div>
 
-        <!-- Result Card -->
-        <div class="col-lg-6">
-          <div class="card">
-            <h3 class="card-header">Result</h3>
-            <div class="card-body">
-              <h1 id="first-number"></h1>
-              <h1 id="operator"></h1>
-              <h1 id="second-number"></h1>
-              <hr />
-              <h1 id="result"></h1>
-            </div>
+      <!-- Result Card -->
+      <div class="col-lg-6">
+        <div class="card">
+          <h3 class="card-header">Result</h3>
+          <div class="card-body">
+            <h1 id="first-number"></h1>
+            <h1 id="operator"></h1>
+            <h1 id="second-number"></h1>
+            <hr />
+            <h1 id="result"></h1>
           </div>
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-=======
+  </div>
   </div>
 
-<script type="text/javascript">
+  <script type="text/javascript">
 
-// Output Objects
-var $nums = [$('#first-number'), $('#second-number')];
-var $operator = $('#operator');
-var $result = $('#result');
+    // Output Objects
+    var $nums = [$('#first-number'), $('#second-number')];
+    var $operator = $('#operator');
+    var $result = $('#result');
 
-// State Tracking
-const STATE_GET_FIRST = 0;
-const STATE_GET_SECOND = 1;
-const STATE_RESULT_CALCULATED = 2;
-var state=0;
-var op = '';
+    // State Tracking
+    const STATE_GET_FIRST = 0;
+    const STATE_GET_SECOND = 1;
+    const STATE_RESULT_CALCULATED = 2;
+    var state = 0;
+    var op = '';
 
-function clearEntries() {
-  $nums[0].text("");
-  $nums[1].text("");
-  $operator.text("");
-  $result.text("");
-  state = 0;
-}
-
-function calculateResult() {
-  if (state == STATE_GET_FIRST) { return; }
-  
-  // Use 'eval' to evaluate the expression
-  $result.text(eval($nums[0].text() + op + $nums[1].text()));
-  state = STATE_RESULT_CALCULATED;
-}
-
-function copyResultFirst() {
-    // Operator after equal - copy the result to first number. clear the rest
-    $nums[0].text($result.text());
-    $nums[1].text("");
-    $result.text("");
-    state = STATE_GET_SECOND;
-}
-
-function parseOp($opEl) {
-    let value = $opEl.val();
-
-    // Find the math symbol we need to actually be using for eval
-    opDecoder = [
-      {value: "plus",   op: "+"},
-      {value: "minus",  op: "-"},
-      {value: "times",  op: "*"},
-      {value: "divide", op: "/"},
-      {value: "power",  op: "**"},
-    ];
-    op = opDecoder.find(i => i.value === value).op;
-
-    // Set the operator to the same symbol as button clicked
-    $operator.text($opEl.text());
-}
-
-// Ready
-$(document).ready(function() {
-  // A number was clicked
-  $('.number').on('click', function() {
-    if (state == STATE_RESULT_CALCULATED) {
-      clearEntries();
+    function clearEntries() {
+      $nums[0].text("");
+      $nums[1].text("");
+      $operator.text("");
+      $result.text("");
+      state = 0;
     }
-    // Set the number text to current number text + the number clicked
-    $nums[state].text($nums[state].text() + $(this).text());
-  });
 
-  // An operator was clicked
-  $('.operator').on('click', function() {
-    
-    if (state == STATE_GET_FIRST) {
-      state = STATE_GET_SECOND; // get ready for the next number
-    } else {
-      // state is STATE_GET_SECOND -or- STATE_RESULT_CALCULATED
-      if (state === STATE_GET_SECOND) { 
-        calculateResult(); 
-      }
-      copyResultFirst();
-    } 
+    function calculateResult() {
+      if (state == STATE_GET_FIRST) { return; }
 
-    // Convert the Operator to a known javascript math operator
-    parseOp($(this));
-  });
+      // Use 'eval' to evaluate the expression
+      $result.text(eval($nums[0].text() + op + $nums[1].text()));
+      state = STATE_RESULT_CALCULATED;
+    }
 
-  // Equal Click Event
-  $('.equal').on('click', function() {
-    calculateResult();
-  });
+    function copyResultFirst() {
+      // Operator after equal - copy the result to first number. clear the rest
+      $nums[0].text($result.text());
+      $nums[1].text("");
+      $result.text("");
+      state = STATE_GET_SECOND;
+    }
 
-  // Clear Click Event
-  $('.clear').on('click', function() {
-    clearEntries();
-  });
+    function parseOp($opEl) {
+      let value = $opEl.val();
 
-});
-</script>
+      // Find the math symbol we need to actually be using for eval
+      opDecoder = [
+        { value: "plus", op: "+" },
+        { value: "minus", op: "-" },
+        { value: "times", op: "*" },
+        { value: "divide", op: "/" },
+        { value: "power", op: "**" },
+      ];
+      op = opDecoder.find(i => i.value === value).op;
 
+      // Set the operator to the same symbol as button clicked
+      $operator.text($opEl.text());
+    }
 
-    <script type="text/javascript">
-      $(document).ready(function() {
-        // Your code here...
-        $(".number").on("click", function(event) {
-          console.log(event.currentTarget.value);
-        });
-
-        4(".operator").on("click", function(event) {
-          console.log(event.currentTarget.value);
-          operatorClicked = true;
-        });
+    // Ready
+    $(document).ready(function () {
+      // A number was clicked
+      $('.number').on('click', function () {
+        if (state == STATE_RESULT_CALCULATED) {
+          clearEntries();
+        }
+        // Set the number text to current number text + the number clicked
+        $nums[state].text($nums[state].text() + $(this).text());
       });
-    </script>
-  </body>
+
+      // An operator was clicked
+      $('.operator').on('click', function () {
+
+        if (state == STATE_GET_FIRST) {
+          state = STATE_GET_SECOND; // get ready for the next number
+        } else {
+          // state is STATE_GET_SECOND -or- STATE_RESULT_CALCULATED
+          if (state === STATE_GET_SECOND) {
+            calculateResult();
+          }
+          copyResultFirst();
+        }
+
+        // Convert the Operator to a known javascript math operator
+        parseOp($(this));
+      });
+
+      // Equal Click Event
+      $('.equal').on('click', function () {
+        calculateResult();
+      });
+
+      // Clear Click Event
+      $('.clear').on('click', function () {
+        clearEntries();
+      });
+
+    });
+  </script>
+</body>
+
 </html>
