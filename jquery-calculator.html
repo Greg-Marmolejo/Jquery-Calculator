@@ -134,6 +134,7 @@
       if (state == STATE_GET_FIRST) { return; }
 
       // Use 'eval' to evaluate the expression
+      
       $result.text(eval($nums[0].text() + op + $nums[1].text()));
       state = STATE_RESULT_CALCULATED;
     }
@@ -171,7 +172,7 @@
           clearEntries();
         }
         // Set the number text to current number text + the number clicked
-        $nums[state].text($nums[state].text() + $(this).text());
+        $nums[state].text($nums[state].text() + $(this).text().trim());
       });
 
       // An operator was clicked
