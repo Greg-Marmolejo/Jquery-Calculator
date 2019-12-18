@@ -75,13 +75,98 @@
 
 <script type="text/javascript">
 
+// Output Objects
+var $nums = [$('#first-number'), $('#second-number')];
+var $operator = $('#operator');
+var $result = $('#result');
+
+// State Tracking
+const STATE_GET_FIRST = 0;
+const STATE_GET_SECOND = 1;
+const STATE_RESULT_CALCULATED = 2;
+var state=0;
+var op = '';
+
+function clearEntries() {
+  $nums[0].text("");
+  $nums[1].text("");
+  $operator.text("");
+  $result.text("");
+  state = 0;
+}
+
+function calculateResult() {
+  if (state == STATE_GET_FIRST) { return; }
+  
+  // Use 'eval' to evaluate the expression
+  $result.text(eval($nums[0].text() + op + $nums[1].text()));
+  state = STATE_RESULT_CALCULATED;
+}
+
+function copyResultFirst() {
+    // Operator after equal - copy the result to first number. clear the rest
+    $nums[0].text($result.text());
+    $nums[1].text("");
+    $result.text("");
+    state = STATE_GET_SECOND;
+}
+
+function parseOp($opEl) {
+    let value = $opEl.val();
+
+    // Find the math symbol we need to actually be using for eval
+    opDecoder = [
+      {value: "plus",   op: "+"},
+      {value: "minus",  op: "-"},
+      {value: "times",  op: "*"},
+      {value: "divide", op: "/"},
+      {value: "power",  op: "**"},
+    ];
+    op = opDecoder.find(i => i.value === value).op;
+
+    // Set the operator to the same symbol as button clicked
+    $operator.text($opEl.text());
+}
+
+// Ready
 $(document).ready(function() {
+  
+  // A number was clicked
+  $('.number').on('click', function() {
+    if (state == STATE_RESULT_CALCULATED) {
+      clearEntries();
+    }
+    // Set the number text to current number text + the number clicked
+    $nums[state].text($nums[state].text() + $(this).text());
+  });
 
-// Your code here...
+  // An operator was clicked
+  $('.operator').on('click', function() {
+    
+    if (state == STATE_GET_FIRST) {
+      state = STATE_GET_SECOND; // get ready for the next number
+    } else {
+      // state is STATE_GET_SECOND -or- STATE_RESULT_CALCULATED
+      if (state === STATE_GET_SECOND) { 
+        calculateResult(); 
+      }
+      copyResultFirst();
+    } 
 
+    // Convert the Operator to a known javascript math operator
+    parseOp($(this));
+  });
 
+  // Equal Click Event
+  $('.equal').on('click', function() {
+    calculateResult();
+  });
+
+  // Clear Click Event
+  $('.clear').on('click', function() {
+    clearEntries();
+  });
 });
-
 </script>
 
 </body>
