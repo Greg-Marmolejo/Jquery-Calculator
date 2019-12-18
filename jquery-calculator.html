@@ -184,11 +184,17 @@
         if (state == STATE_GET_FIRST) {
           state = STATE_GET_SECOND; // get ready for the next number
         } else {
-          // state is STATE_GET_SECOND -or- STATE_RESULT_CALCULATED
-          if (state === STATE_GET_SECOND) {
-            calculateResult();
+          if ($nums[1].text() === "") {
+
           }
-          copyResultFirst();
+          // state is STATE_GET_SECOND -or- STATE_RESULT_CALCULATED
+          else{
+
+            if (state === STATE_GET_SECOND) {
+              calculateResult();
+            }
+            copyResultFirst();
+          }
         }
 
         // Convert the Operator to a known javascript math operator
