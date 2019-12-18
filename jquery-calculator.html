@@ -78,8 +78,19 @@
 $(document).ready(function() {
 
 // Your code here...
+// click handlers //
+var firstNumber = "";
+var operatorClicked = false;
+  $(".number").on("click", function(event){
+    console.log(event.currentTarget.value);
+    firstNumber += event.currentTarget.value;
+    console.log(firstNumber);
+    else {
+      // we should be building our second number
+    }
+  })
 
-
+$(".operator").on("click",addEventListener)
 });
 
 </script>
